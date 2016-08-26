@@ -20,10 +20,10 @@ Group apache
 DocumentRoot <%= "#{node['wordpress']['wp_path']}" %>
 
 
-<Directory "/var/www">
-    AllowOverride None
-    # Allow open access:
+<Directory "<%= "#{node['wordpress']['wp_path']}" %>" >
+    AllowOverride All
     Require all granted
+    Options Indexes FollowSymLinks
 </Directory>
 
 <Directory "/var/www/html">
